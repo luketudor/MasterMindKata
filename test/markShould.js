@@ -1,6 +1,5 @@
 var assert = require('assert');
-var markFile = require('../mark');
-var Mark = markFile.Mark;
+var Mark = require('../mark').Mark;
 
 suite('Mark', function() {
     var mark;

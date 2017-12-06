@@ -1,5 +1,6 @@
 var assert = require('assert');
 var Code = require('../code').Code;
+var Mark = require('../mark').Mark;
 
 suite('Code', function() {
     suite('#CodePropertiesShould', function() {
@@ -24,4 +25,11 @@ suite('Code', function() {
             assert.equal(code.isCodeEqual(new Code(['w', 'g', 'w', 'c'])), false);
         });
     });
+    suite('#MarkShould', function() {
+        var code;
+        test('return 4 black pegs for correct guess', function() {
+            code = new Code(['r', 'g', 'y', 'c']);
+            assert.deepEqual(code.mark(new Code(['w', 'g', 'w', 'c'])), new Mark(4, 0));
+        })
+    })
 });
