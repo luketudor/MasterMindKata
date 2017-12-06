@@ -6,7 +6,13 @@ var Code = function(orderedValues) {
         return this.values.toString() === guess.values.toString();
     };
     this.mark = function(guess) {
-        return new Mark(4, 0);
+        var blackCount = 0;
+        for (var i = 0; i < guess.values.length; i++) {
+            if (this.values[i] === guess.values[i]) {
+                blackCount++;
+            }
+        }
+        return new Mark(blackCount, 0);
     };
 };
 
