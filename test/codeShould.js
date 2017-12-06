@@ -29,7 +29,11 @@ suite('Code', function() {
         var code;
         test('return 4 black pegs for correct guess', function() {
             code = new Code(['r', 'g', 'y', 'c']);
-            assert.deepEqual(code.mark(new Code(['w', 'g', 'w', 'c'])), new Mark(4, 0));
-        })
-    })
+            assert.deepEqual(code.mark(new Code(['r', 'g', 'y', 'c'])), new Mark(4, 0));
+        });
+        test('return 3 black pegs for almost correct guess', function() {
+            code = new Code(['r', 'g', 'y', 'c']);
+            assert.deepEqual(code.mark(new Code(['w', 'g', 'y', 'c'])), new Mark(3, 0));
+        });
+    });
 });
