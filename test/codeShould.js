@@ -35,5 +35,9 @@ suite('Code', function() {
             code = new Code(['r', 'g', 'y', 'c']);
             assert.deepEqual(code.mark(new Code(['w', 'g', 'y', 'c'])), new Mark(3, 0));
         });
+        test('return 2 black pegs and 2 white pegs for guess', function() {
+           code = new Code(['r', 'g', 'y', 'c']) ;
+           assert.deepEqual(code.mark(new Code(['r', 'g', 'c', 'y'])), new Mark(2, 2));
+        });
     });
 });
