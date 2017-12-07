@@ -10,7 +10,7 @@ Code.prototype.mark = function(guess) {
     for (var i = 0; i < this.values.length; i++) {
         if (this.values[i] === guess.values[i]) {
             blackCount++;
-        } else if (this.values.indexOf(guess.values[i]) !== -1) {
+        } else if (this.values.includes(guess.values[i])) {
             whiteCount++;
         }
     }
