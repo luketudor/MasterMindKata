@@ -26,12 +26,9 @@ Code.prototype.mark = function(guess) {
             }
         }
         return guessNonBlacks.length - codeNonBlacks.length;
-    }
+    };
 
-    var blackCount = blackCounter(this.values);
-    var whiteCount = whiteCounter();
-    
-    return new Mark(blackCount, whiteCount);
+    return new Mark(blackCounter(this.values), whiteCounter());
 };
 
 module.exports.Code = Code;
