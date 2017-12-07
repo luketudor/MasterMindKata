@@ -18,16 +18,18 @@ Code.prototype.mark = function(guess) {
         return codeValues.length - codeNonBlacks.length;
     };
 
-    var blackCount = blackCounter(this.values);
-
-    var whiteCount = 0;
-    for (var i = 0; i < guessNonBlacks.length; i++) {
-        var matchIndex = codeNonBlacks.indexOf(guessNonBlacks[i]);
-        if (matchIndex !== -1) {
-            whiteCount++;
-            codeNonBlacks.splice(matchIndex, 1);
+    var whiteCounter = function() {
+        for (var i = 0; i < guessNonBlacks.length; i++) {
+            var matchIndex = codeNonBlacks.indexOf(guessNonBlacks[i]);
+            if (matchIndex !== -1) {
+                codeNonBlacks.splice(matchIndex, 1);
+            }
         }
+        return guessNonBlacks.length - codeNonBlacks.length;
     }
+
+    var blackCount = blackCounter(this.values);
+    var whiteCount = whiteCounter();
     
     return new Mark(blackCount, whiteCount);
 };
