@@ -5,9 +5,10 @@ var Code = function(orderedValues) {
 };
 
 Code.prototype.mark = function(guess) {
+    var codeValues = this.values;
     var codeNonBlacks = [];
     var guessNonBlacks = [];
-    var blackCounter = function(codeValues) {
+    var blackCounter = function() {
         for (var i = 0; i < codeValues.length; i++) {
             var colour = guess.values.shift();
             if (codeValues[i] !== colour) {
@@ -28,7 +29,7 @@ Code.prototype.mark = function(guess) {
         return guessNonBlacks.length - codeNonBlacks.length;
     };
 
-    return new Mark(blackCounter(this.values), whiteCounter());
+    return new Mark(blackCounter(), whiteCounter());
 };
 
 module.exports.Code = Code;
