@@ -14,17 +14,6 @@ suite('Code', function() {
             assert.deepEqual(code.values, ['w', 'g', 'w', 'c']);
         });
     });
-    suite('#IsCodeEqualShould', function() {
-        var code;
-        test('return true for correct guess', function() {
-            code = new Code(['r', 'g', 'y', 'c']);
-            assert.equal(code.isCodeEqual(new Code(['r', 'g', 'y', 'c'])), true);
-        });
-        test('return false for incorrect test', function() {
-            code = new Code(['r', 'g', 'y', 'c']);
-            assert.equal(code.isCodeEqual(new Code(['w', 'g', 'w', 'c'])), false);
-        });
-    });
     suite('#MarkShould', function() {
         var code;
         test('return 4 black pegs for correct guess', function() {
@@ -36,8 +25,12 @@ suite('Code', function() {
             assert.deepEqual(code.mark(new Code(['w', 'g', 'y', 'c'])), new Mark(3, 0));
         });
         test('return 2 black pegs and 2 white pegs for guess', function() {
-           code = new Code(['r', 'g', 'y', 'c']) ;
-           assert.deepEqual(code.mark(new Code(['r', 'g', 'c', 'y'])), new Mark(2, 2));
+            code = new Code(['r', 'g', 'y', 'c']) ;
+            assert.deepEqual(code.mark(new Code(['r', 'g', 'c', 'y'])), new Mark(2, 2));
+        });
+        test('return 1 black peg and 1 white peg for guess', function() {
+            code = new Code(['r', 'g', 'y', 'c']) ;
+            assert.deepEqual(code.mark(new Code(['w', 'r', 'w', 'c'])), new Mark(1, 1));
         });
     });
 });
