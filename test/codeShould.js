@@ -35,6 +35,10 @@ suite('Code', function() {
         test('return 2 marks for a guess that is too short', function() {
             code = new Code(['r', 'g', 'y', 'c']);
             assert.deepEqual(code.mark(new Code(['r', 'g'])), new Mark(2, 0));
-        })
+        });
+        test('return 3 black marks only', function() {
+            code = new Code(['b', 'r', 'r', 'r']);
+            assert.deepEqual(code.mark(new Code(['r','r','r','r'])), new Mark(3, 0));
+        });
     });
 });
