@@ -9,6 +9,7 @@ Code.prototype.mark = function(guess) {
     var whiteCount = 0;
     var codeNonBlacks = [];
     var guessNonBlacks = [];
+
     for (var i = 0; i < this.values.length; i++) {
         var colour = guess.values.shift();
         if (this.values[i] === colour) {
@@ -18,6 +19,7 @@ Code.prototype.mark = function(guess) {
             codeNonBlacks.push(this.values[i]);
         }
     }
+
     for (var i = 0; i < guessNonBlacks.length; i++) {
         var matchIndex = codeNonBlacks.indexOf(guessNonBlacks[i]);
         if (matchIndex !== -1) {
@@ -25,6 +27,7 @@ Code.prototype.mark = function(guess) {
             codeNonBlacks.splice(matchIndex, 1);
         }
     }
+    
     return new Mark(blackCount, whiteCount);
 };
 
