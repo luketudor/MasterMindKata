@@ -7,7 +7,7 @@ var Code = function(orderedValues) {
 Code.prototype.mark = function(guess) {
     var blackCount = 0;
     var whiteCount = 0;
-    for (var i = 0; i < guess.values.length; i++) {
+    for (var i = 0; i < this.values.length; i++) {
         if (this.values[i] === guess.values[i]) {
             blackCount++;
         } else if (this.values.indexOf(guess.values[i]) !== -1) {
