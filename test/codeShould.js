@@ -36,9 +36,13 @@ suite('Code', function() {
             code = new Code(['r', 'g', 'y', 'c']);
             assert.deepEqual(code.mark(new Code(['r', 'g'])), new Mark(2, 0));
         });
-        test('return 3 black marks only', function() {
+        test('return 3 black marks for duplicate black marks', function() {
             code = new Code(['b', 'r', 'r', 'r']);
             assert.deepEqual(code.mark(new Code(['r','r','r','r'])), new Mark(3, 0));
+        });
+        test('return 1 white mark for duplicate white marks', function() {
+            code = new Code(['b', 'r', 'r', 'r']);
+            assert.deepEqual(code.mark(new Code(['g','b','b','b'])), new Mark(0, 1));
         });
     });
 });

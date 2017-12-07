@@ -19,8 +19,10 @@ Code.prototype.mark = function(guess) {
         }
     }
     for (var i = 0; i < guessNonBlacks.length; i++) {
-        if (codeNonBlacks.includes(guessNonBlacks[i])) {
+        var matchIndex = codeNonBlacks.indexOf(guessNonBlacks[i]);
+        if (matchIndex !== -1) {
             whiteCount++;
+            codeNonBlacks.splice(matchIndex, 1);
         }
     }
     return new Mark(blackCount, whiteCount);
