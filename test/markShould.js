@@ -21,4 +21,14 @@ suite('Mark', function() {
             assert.equal(mark.numWhite, 2);
         });
     });
+    suite('#ToStringShould', function() {
+        test('return result string mark', function() {
+            mark = new Mark(1, 3);
+            assert.equal(mark.toString(), 'bwww');
+        });
+        test('return different result string mark', function() {
+            mark = new Mark(2, 1);
+            assert.equal(mark.toString(), 'bbw');
+        });
+    });
 });

@@ -45,7 +45,7 @@ suite('Code', function() {
             assert.deepEqual(code.mark(new Code(['g','b','b','b'])), new Mark(0, 1));
         });
     });
-    suite('#ToString', function() {
+    suite('#ToStringShould', function() {
         var code;
         test('return formatted output string', function() {
             code = new Code(['r', 'g', 'y', 'c']);
