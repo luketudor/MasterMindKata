@@ -44,6 +44,14 @@ suite('Code', function() {
             code = new Code(['b', 'r', 'r', 'r']);
             assert.deepEqual(code.mark(new Code(['g','b','b','b'])), new Mark(0, 1));
         });
+        test('C1', function() {
+            code = new Code(['r', 'r', 'r', 'r']);
+            assert.deepEqual(code.mark(new Code(['r','b','r','b'])), new Mark(2, 0));
+        });
+        test('C2', function() {
+            code = new Code(['r', 'r', 'r', 'r']);
+            assert.deepEqual(code.mark(new Code(['r','b','r','b'])), new Mark(2, 0));
+        });
     });
     suite('#ToStringShould', function() {
         var code;

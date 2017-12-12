@@ -9,6 +9,7 @@ Code.prototype = {
         var codeValues = this.values;
         var codeNonBlacks = [];
         var guessNonBlacks = [];
+
         var blackCounter = function() {
             for (var i = 0; i < codeValues.length; i++) {
                 var colour = guess.values.shift();
